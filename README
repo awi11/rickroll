@@ -1,1 +1,29 @@
 Simple example of LKM (loaded kernel module)
+
+Instructions
+
+to log everything from the kernel use this command:
+"tail -f /var/log/kern.log"
+
+now to inject the module into your kernel
+"make"
+
+insert the module into the kernel and register yourself, grab major #
+"sudo insmod rickroll.ko 
+
+register a node to to our device, point device to the rick roll generator
+"sudo mknod rickroll c <your major number> 0"
+"cat /dev/rickroll"
+
+
+
+
+
+*Optional Reading*
+
+Kernel code is different from typical code that runs sequentially. Kernel
+code is event driven. Create a piece of code that listens for events and
+takes the approrpiate action.
+
+Designed to extend the linux kernel. Although written in C not every C
+library function will be exposed.
